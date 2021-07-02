@@ -1,45 +1,57 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Post } from './post.model';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { PostService } from './post.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  loadedPosts = [];
-
-  constructor(private http: HttpClient) {}
+export class AppComponent implements OnInit, OnDestroy {
+  loadedPosts: Post[] = [];
+  isLoading: boolean = false;
+  error: null;
+  private subscription: Subscription
+  constructor(
+    private postService: PostService,
+  ) {}
 
   ngOnInit() {
+    this.subscription = this.postService.error.subscribe(error => {
+      this.error = error;
+    })
     this.onFetchPosts()
   }
 
-  onCreatePost(postData: { title: string; content: string }) {
+  onCreatePost(postData: Post) {
     // Send Http request
-    console.log(postData);
-    this.http.post('https://minrun-angular-demo-default-rtdb.firebaseio.com/post.json', postData)
-      .subscribe(res => console.log(res))
-
+    this.postService.createPost(postData.title, postData.content)
   }
 
   onFetchPosts() {
     // Send Http request
-    this.http.get('https://minrun-angular-demo-default-rtdb.firebaseio.com/post.json')
-      .pipe(map(res => {
-        let postArray = [];
-        for (let key in res) {
-          if (res.hasOwnProperty(key)) {
-            postArray.push({...res[key], id: key})
-          }
-        }
-        return postArray;
-      }))
-      .subscribe(postArray => console.log(postArray))
+    this.isLoading = true;
+    this.postService.getPosts()
+      .subscribe(posts => {
+        this.isLoading = false;
+        this.loadedPosts = posts
+      }, error => {
+        this.isLoading = false;
+        this.error = error.message;
+      })
+    
   }
 
   onClearPosts() {
     // Send Http request
+    this.postService.clearPosts().subscribe(res => {
+      this.loadedPosts = [];
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
