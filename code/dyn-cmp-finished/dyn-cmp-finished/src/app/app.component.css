@@ -1,0 +1,11 @@
+.container-main {
+  max-width: 120rem;
+  min-height: 50rem;
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--box-shadow-dark);
+  margin: 8rem auto; }
+  @media only screen and (max-width: 75em) {
+    .container {
+      margin: 0;
+      max-width: 100%;
+      width: 100%; } }
