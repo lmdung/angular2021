@@ -1,4 +1,4 @@
-<a
+<!-- <a
   style="cursor: pointer;"
   [routerLink]="[index]"
   routerLinkActive="active"
@@ -14,4 +14,12 @@
           class="img-responsive"
           style="max-height: 50px;">
       </span>
-</a>
+</a> -->
+<article class="leaderboard__profile">
+  <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="leaderboard__picture">
+  <div class="leaderboard__detail-box">
+    <span class="leaderboard__name">{{ recipe.name }}</span>
+    <span class="list-group-item-text">{{ recipe.description }}</span>
+  </div>
+  <span class="leaderboard__value">{{index+1}}</span>
+</article>

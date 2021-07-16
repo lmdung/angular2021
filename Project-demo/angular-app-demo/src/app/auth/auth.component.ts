@@ -18,7 +18,8 @@ import * as AuthActions from './store/auth.actions';
 
 @Component({
   selector: 'app-auth',
-  templateUrl: './auth.component.html'
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit, OnDestroy {
   isLoginMode = true;
@@ -44,8 +45,12 @@ export class AuthComponent implements OnInit, OnDestroy {
       }
     })
   }
-  onSwitchMode() {
-    this.isLoginMode = !this.isLoginMode;
+  onSwitchMode(type: string) {
+    if (type === 'login') {
+      this.isLoginMode = true;
+    } else {
+      this.isLoginMode = false;
+    }
   }
 
   onSubmit(form: NgForm) {

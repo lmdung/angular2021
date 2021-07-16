@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container-main">
+<!-- <div class="container-main">
   <app-header></app-header>
   <div class="container">
     <div class="row">
@@ -7,5 +7,15 @@
         <router-outlet></router-outlet>
       </div>
     </div>
+  </div>
+</div> -->
+
+<div class="container-main">
+  <app-header class="header"></app-header>
+  <div class="content">
+    <app-sidebar class="sidebar"></app-sidebar>
+    <main class="hotel-view">
+      <router-outlet></router-outlet>
+    </main>
   </div>
 </div>

@@ -1,0 +1,96 @@
+$bp-largest: 75em;     // 1200px;
+$bp-large: 68.75em;     // 1100px;
+$bp-medium: 56.25em;     // 900px;
+$bp-small: 37.5em;     // 600px
+$bp-smallest: 31.25em; // 500px
+
+.side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
+  @media only screen and (max-width: $bp-medium) {
+    margin-top: 0;
+    display: flex;
+  }
+  &__item {
+    position: relative;
+    &:not(:last-child) {
+      margin-bottom: .5rem;
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0;
+      }
+    }
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
+    }
+  }
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform .2s,
+                width .4s cubic-bezier(1,0,0,1) .2s,
+                background-color .1s;
+  }
+  &__item:hover::before,
+  &__item-active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+  &__link,
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    z-index: 10;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+    }
+    @media only screen and (max-width: $bp-smallest) {
+      span {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor; // color cua no or parent
+    @media only screen and (max-width: $bp-small) {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 0;
+      margin-bottom: .5rem;
+    }
+  }
+}
+
+.legal {
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  text-align: center;
+  padding: 2.5rem;
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
+}

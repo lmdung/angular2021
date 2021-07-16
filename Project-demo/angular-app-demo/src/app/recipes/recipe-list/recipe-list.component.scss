@@ -1,0 +1,69 @@
+$bp-largest: 97.5em;     
+$bp-large: 68.75em;     // 1100px;
+$bp-medium: 56.25em;     // 900px;
+$bp-small: 37.5em;     // 600px
+$bp-smallest: 31.25em; // 500px
+
+// cta 
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem 0;
+  }
+  &__book-now {
+    font-style: 2rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    @media only screen and (max-width: $bp-medium) {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+
+.btn {
+  font-style: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 100px;
+  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  & > * {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s;
+  }
+  &-visible {
+    padding: 2rem 7.5rem;
+  }
+  &-invisible {
+    padding: 2rem 0rem;
+    position: absolute;
+    top: -100%;
+    left: 0;
+  }
+
+  &:hover {
+    background-image: linear-gradient(to left bottom, var(--color-primary-light), var(--color-primary-dark));
+  }
+
+  &:hover &-visible {
+    transform: translateY(100%)
+  }
+
+  &:hover &-invisible {
+    top: 0;
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}

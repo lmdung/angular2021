@@ -1,14 +1,6 @@
-<ng-template appPlaceholder></ng-template>
-<div class="row">
+<!-- <ng-template appPlaceholder></ng-template>
+<div class="row d-flex justify-content-center align-items-center">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
-    <!-- <div class="alert alert-danger" *ngIf="error">
-      <p>{{ error }}</p>
-    </div> -->
-    <!-- <app-alert
-      [message]="error"
-      *ngIf="error"
-      (close)="onHandleError()"
-    ></app-alert> -->
     <div *ngIf="isLoading" style="text-align: center;">
       <app-loading-spinner></app-loading-spinner>
     </div>
@@ -52,4 +44,91 @@
       </div>
     </form>
   </div>
+</div> -->
+<ng-template appPlaceholder></ng-template>
+<div class="auth">
+  <div *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <div
+    *ngIf="!isLoading" 
+    class="container-auth" 
+    id="container-auth" 
+    [ngClass]="isLoginMode ? '' : 'right-panel-active'">
+    <div class="form-container sign-up-container">
+      <form #signForm="ngForm" (ngSubmit)="onSubmit(signForm)">
+        <h1>Create Account</h1>
+        <div class="social-container">
+          <a style="cursor: not-allowed" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a style="cursor: not-allowed" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a style="cursor: not-allowed" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your email for registration</span>
+        <!-- <input type="text" placeholder="Name" /> -->
+        <input 
+          type="email" 
+          placeholder="Email" 
+          id="email"
+          ngModel
+          name="email"
+          required
+          email/>
+        <input 
+          type="password" 
+          placeholder="Password" 
+          id="password"
+          ngModel
+          name="password"
+          required
+          minlength="6"/>
+        <button type="submit" [disabled]="!signForm.valid">Sign Up</button>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <h1>Sign in</h1>
+        <div class="social-container">
+          <a style="cursor: not-allowed" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a style="cursor: not-allowed" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a style="cursor: not-allowed" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your account</span>
+        <input
+          type="email" 
+          placeholder="Email" 
+          id="email"
+          ngModel
+          name="email"
+          required
+          email/>
+        <input 
+          type="password" 
+          placeholder="Password" 
+          id="password"
+          ngModel
+          name="password"
+          required
+          minlength="6"/>
+        <a href="#">Forgot your password?</a>
+        <button type="submit" [disabled]="!loginForm.valid">Log In</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <!-- <p>To keep connected with us please login with your personal info</p> -->
+          <button class="ghost" id="signIn" (click)="onSwitchMode('login')">Login</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <!-- <p>Enter your personal details and start journey with us</p> -->
+          <button class="ghost" id="signUp" (click)="onSwitchMode('signUp')">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+

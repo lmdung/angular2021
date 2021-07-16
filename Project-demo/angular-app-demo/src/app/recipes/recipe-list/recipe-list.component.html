@@ -1,15 +1,17 @@
-<div class="row">
-  <div class="col-xs-12">
-    <button class="btn btn-success" (click)="onNewRecipe()">New Recipe</button>
-  </div>
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 2rem">
+  <app-recipe-item
+    *ngFor="let recipeEl of recipes; let i = index"
+    [recipe]="recipeEl"
+    [index]="i"></app-recipe-item>
 </div>
-<hr>
-<div class="row">
-  <div class="col-xs-12">
-    <app-recipe-item
-      *ngFor="let recipeEl of recipes; let i = index"
-      [recipe]="recipeEl"
-      [index]="i"></app-recipe-item>
-  </div>
+<div class="cta">
+  <h2 class="cta__book-now">
+      Good news! book now! book now! book now! book now! 
+  </h2>
+  <button class="btn" (click)="onNewRecipe()">
+      <span class="btn-visible">Book now</span>
+      <span class="btn-invisible">only 4 rooms left</span>
+  </button>
 </div>
 

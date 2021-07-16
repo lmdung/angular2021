@@ -1,0 +1,69 @@
+<!-- <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a routerLink="/" class="navbar-brand">Recipe Book</a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active" *ngIf="isAuthenticated">
+          <a routerLink="/recipes">Recipes</a>
+        </li>
+        <li routerLinkActive="active" *ngIf="!isAuthenticated">
+          <a routerLink="/auth">Authenticate</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/shopping-list">Shopping List</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="isAuthenticated">
+          <a style="cursor: pointer;" (click)="onLogout()">Logout</a>
+        </li>
+        <li class="dropdown" appDropdown *ngIf="isAuthenticated">
+          <a style="cursor: pointer;" class="dropdown-toggle" role="button"
+            >Manage <span class="caret"></span
+          ></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
+            </li>
+            <li>
+              <a style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+<ul class="side-nav">
+  <li class="side-nav__item" routerLinkActive="active" *ngIf="isAuthenticated">
+      <a routerLink="/recipes" class="side-nav__link">
+        <i class="fas fa-concierge-bell side-nav__icon"></i>
+        <span>Recipes</span>
+      </a>
+  </li>
+  <li class="side-nav__item" routerLinkActive="active" *ngIf="!isAuthenticated">
+      <a class="side-nav__link" routerLink="/auth">
+        <i class="fas fa-sign-in-alt side-nav__icon"></i>
+        <span>Authenticate</span>
+      </a>
+  </li>
+  <li class="side-nav__item" routerLinkActive="active">
+      <a routerLink="/shopping-list" class="side-nav__link">
+        <i class="fas fa-cart-arrow-down side-nav__icon "></i>
+        <span>Shopping List</span>
+      </a>
+  </li>
+  <li class="side-nav__item" *ngIf="isAuthenticated">
+      <a style="cursor: pointer;" class="side-nav__link" (click)="onLogout()">
+        <i class="fas fa-sign-in-alt side-nav__icon"></i>
+        <span>Logout</span>
+      </a>
+  </li>
+</ul>
+<div class="legal">
+  &copy; Hello anh em. Minh la Lee Min Run
+</div>
