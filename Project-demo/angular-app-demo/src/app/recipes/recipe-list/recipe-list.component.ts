@@ -16,7 +16,6 @@ import * as RecipesActions from '../store/recipes.actions';
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
   subscription: Subscription;
-
   constructor(private recipeService: RecipeService,
               private router: Router,
               private route: ActivatedRoute,
@@ -24,7 +23,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
               ) {}
 
   ngOnInit() {
-    this.store.dispatch(new RecipesActions.FetchRecipes());
     this.subscription = this.store.select('recipes')
       .pipe(map(data => data.recipes))
       .subscribe(recipes => {
@@ -39,6 +37,12 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     // this.recipes = this.recipeService.getRecipes();
   }
 
+  fetchRecipes() {
+    this.store.dispatch(new RecipesActions.FetchRecipes())
+  }
+  storeRecipes(){
+    this.store.dispatch(new RecipesActions.StoreRecipes())
+  }
   onNewRecipe() {
     this.router.navigate(['new'], {relativeTo: this.route});
   }

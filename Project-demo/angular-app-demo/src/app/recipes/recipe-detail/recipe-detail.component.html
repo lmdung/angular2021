@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-12">
     <img
       [src]="recipe.imagePath"
@@ -45,4 +45,103 @@
       </li>
     </ul>
   </div>
+</div> -->
+<div class="gallery">
+  <figure class="gallery__item">
+      <img src="../../../assets/img/recipe-1.jpg" alt="hotel 1" class="gallery__photo">
+  </figure>
+  <figure class="gallery__item">
+      <img src="../../../assets/img/recipe-2.jpg"  alt="hotel 2" class="gallery__photo">
+  </figure>
+  <figure class="gallery__item">
+      <img src="../../../assets/img/recipe-3.jpg"  alt="hotel 3" class="gallery__photo">
+  </figure>
+</div>
+
+<div class="overview">
+  <h1 class="overview__heading">
+    {{ recipe.name }}
+  </h1>
+  <div class="overview__stars">
+    <i class="fas fa-star overview__icon-star"></i>
+    <i class="fas fa-star overview__icon-star"></i>
+    <i class="fas fa-star overview__icon-star"></i>
+    <i class="fas fa-star overview__icon-star"></i>
+    <i class="fas fa-star overview__icon-star"></i>
+  </div>
+  <div class="overview__location">
+    <i class="fas fa-map-marker-alt overview__icon-location"></i>
+    <button class="btn-inline">Thanh Xuân, Hà Nội, Việt Nam</button>
+  </div>
+  <div class="overview__rating">
+      <div class="overview__rating-average">9.9</div>
+      <div class="overview__rating-count">999 votes</div>
+  </div>
+</div>
+
+<div class="detail">
+  <div class="description">
+      <p class="paragraph">
+          {{ recipe.description }}
+      </p>
+      <ul class="list">
+          <li class="list__item" *ngFor="let ingredient of recipe.ingredients">
+            <i class="fas fa-chevron-right"></i>
+            {{ingredient.name }} - {{ ingredient.amount }}
+          </li>
+      </ul>
+      <div class="recommend">
+          <p class="recommend__count">
+              Run and 3 friends recommend this recipe.
+          </p>
+          <div class="recommend__friends">
+              <img src="../../../assets/img/user-3.jpg" alt="Friend 1" class="recommend__photo">
+              <img src="../../../assets/img/user-4.jpg" alt="Friend 2" class="recommend__photo">
+              <img src="../../../assets/img/user-5.jpg" alt="Friend 3" class="recommend__photo">
+              <img src="../../../assets/img/user-6.jpg" alt="Friend 4" class="recommend__photo">
+          </div>
+      </div>
+      <div class="group-btn">
+        <button class="btnNew">
+          <span>Fetch recipes</span>
+        </button>
+        <button class="btnNew" style="margin-left: 1rem;">
+          <span>Store recipes</span>
+        </button>
+      </div>
+  </div>
+
+  <div class="users-review">
+      <figure class="review">
+          <blockquote class="review__text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto.
+          </blockquote>
+          <figcaption class="review__user">
+              <img src="../../../assets/img/user-1.jpg" alt="User 1" class="review__photo">
+              <div class="review__user-box">
+                  <p class="review__user-name">Min Run</p>
+                  <p class="review__user-date">July 15 , 2021</p>
+              </div>
+              <div class="review__rating">8.8</div>
+          </figcaption>
+      </figure>
+      <figure class="review">
+          <blockquote class="review__text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque..
+          </blockquote>
+          <figcaption class="review__user">
+              <img src="../../../assets/img//user-2.jpg" alt="User 2" class="review__photo">
+              <div class="review__user-box">
+                  <p class="review__user-name">Min Run</p>
+                  <p class="review__user-date">July 15 , 2021</p>
+              </div>
+              <div class="review__rating">8.8</div>
+          </figcaption>
+      </figure>
+      <button class="btn-inline">
+          show all
+          <span>&rarr;</span>
+      </button>
+  </div>
+  
 </div>

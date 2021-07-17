@@ -8,6 +8,7 @@ $bp-smallest: 31.25em; // 500px
 .cta {
   padding: 3.5rem 0;
   text-align: center;
+  border-top: var(--line);
   @media only screen and (max-width: $bp-medium) {
     padding: 2rem 0;
   }
@@ -23,7 +24,7 @@ $bp-smallest: 31.25em; // 500px
 }
 
 
-.btn {
+.btnNew {
   font-style: 1.5rem;
   font-weight: 300;
   text-transform: uppercase;
@@ -65,5 +66,24 @@ $bp-smallest: 31.25em; // 500px
   &:focus {
     outline: none;
     animation: pulsate 1s infinite;
+  }
+}
+
+
+.recipes {
+  grid-column: center-start / center-end;
+  margin: 10rem 15rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 7rem;
+}
+
+.group-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  span {
+    padding: 1rem 3rem;
   }
 }

@@ -39,6 +39,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy{
     //   this.recipeForm.value['description'],
     //   this.recipeForm.value['imagePath'],
     //   this.recipeForm.value['ingredients']);
+    console.log(this.recipeForm.value)
     if (this.editMode) {
       // this.recipeService.updateRecipe(this.id, this.recipeForm.value);
       this.store.dispatch(new RecipesActions.UpdateRecipe({index: this.id, recipe: this.recipeForm.value}))
@@ -67,6 +68,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy{
   }
 
   onCancel() {
+    console.log('hello')
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 

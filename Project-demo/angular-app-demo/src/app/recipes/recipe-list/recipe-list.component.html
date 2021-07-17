@@ -1,5 +1,13 @@
 
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 2rem">
+<div class="group-btn">
+  <button class="btnNew" (click)="fetchRecipes()">
+    <span>Fetch recipes</span>
+  </button>
+  <button class="btnNew" (click)="storeRecipes()" style="margin-left: 1rem;">
+    <span>Store recipes</span>
+  </button>
+</div>
+<div class="recipes">
   <app-recipe-item
     *ngFor="let recipeEl of recipes; let i = index"
     [recipe]="recipeEl"
@@ -7,11 +15,11 @@
 </div>
 <div class="cta">
   <h2 class="cta__book-now">
-      Good news! book now! book now! book now! book now! 
+      Good news! many gifts for new recipe
   </h2>
-  <button class="btn" (click)="onNewRecipe()">
-      <span class="btn-visible">Book now</span>
-      <span class="btn-invisible">only 4 rooms left</span>
+  <button class="btnNew" (click)="onNewRecipe()">
+      <span class="btnNew-visible">new recipe</span>
+      <span class="btnNew-invisible">only 4 gifts left</span>
   </button>
 </div>
 
