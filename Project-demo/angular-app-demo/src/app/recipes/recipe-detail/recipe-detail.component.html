@@ -101,12 +101,15 @@
               <img src="../../../assets/img/user-6.jpg" alt="Friend 4" class="recommend__photo">
           </div>
       </div>
-      <div class="group-btn">
-        <button class="btnNew">
-          <span>Fetch recipes</span>
+      <div class="group-btn-detail">
+        <button class="btn-detail" (click)="onAddToShoppingList()">
+          <span>To shopping list</span>
         </button>
-        <button class="btnNew" style="margin-left: 1rem;">
-          <span>Store recipes</span>
+        <button class="btn-detail" style="margin-left: 1rem;" (click)="onEditRecipe()">
+          <span>Edit recipe</span>
+        </button>
+        <button class="btn-detail" style="margin-left: 1rem;" (click)="onDeleteRecipe()">
+          <span>Delete Recipe</span>
         </button>
       </div>
   </div>

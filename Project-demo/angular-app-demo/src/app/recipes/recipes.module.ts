@@ -1,7 +1,8 @@
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { SharedModule } from "../shared/shared.module";
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { RecipesComponent } from "./recipes.component";
 import { RecipeDetailComponent } from "./recipe-detail/recipe-detail.component";
@@ -10,6 +11,7 @@ import { RecipeItemComponent } from "./recipe-list/recipe-item/recipe-item.compo
 import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipesRoutingModule } from "./recipes-routing.module";
+import { HighlightModule } from "../highlight/highlight.module";
 @NgModule({
   declarations: [
     RecipesComponent,
@@ -20,10 +22,13 @@ import { RecipesRoutingModule } from "./recipes-routing.module";
     RecipeEditComponent,
   ],
   imports: [
+    NgxPaginationModule,
     RouterModule,
     ReactiveFormsModule,
     RecipesRoutingModule,
-    SharedModule
+    SharedModule,
+    HighlightModule,
+    FormsModule,
   ]
 })
 

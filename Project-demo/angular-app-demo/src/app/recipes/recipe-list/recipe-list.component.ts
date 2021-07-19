@@ -16,6 +16,9 @@ import * as RecipesActions from '../store/recipes.actions';
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
   subscription: Subscription;
+  searchText: string;
+  page: number = 1;
+  viewRecipes: Recipe[];
   constructor(private recipeService: RecipeService,
               private router: Router,
               private route: ActivatedRoute,
@@ -27,6 +30,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
       .pipe(map(data => data.recipes))
       .subscribe(recipes => {
         this.recipes = recipes;
+        this.viewRecipes = [...recipes]
       })
     // this.subscription = this.recipeService.recipesChanged
     //   .subscribe(
@@ -46,7 +50,19 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   onNewRecipe() {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
-
+  handlePageChange(event) {
+    this.page = event;
+  }
+  searchKeyup(e) {
+    const text = e.target.value.toUpperCase();
+    if (!text) {
+      this.viewRecipes = [...this.recipes]
+    }
+    if (text.trim() !== '') {
+      // this.handlePageChange(1);
+      this.viewRecipes = this.recipes.filter(recipe => recipe.name.toUpperCase().indexOf(text) > -1);
+    }
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

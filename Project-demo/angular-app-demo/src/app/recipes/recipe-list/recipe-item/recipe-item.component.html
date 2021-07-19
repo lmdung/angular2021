@@ -28,10 +28,14 @@
 <div class="home">
   <img [src]="recipe.imagePath" alt="House 1" class="home__img">
   <i class="fas fa-heart home__like"></i>
-  <h5 class="home__name">{{ recipe.name }}</h5>
-  <div class="home__location" *ngFor="let ingredient of recipe.ingredients">
-      <i class="fas fa-chevron-right"></i>
-      <p>{{ ingredient.name }} - {{ ingredient.amount }}</p>
+  <h5 
+    class="home__name"
+    [innerHTML]="recipe.name | highlight : searchText"></h5>
+  <div class="home__group-ingredients">
+    <div class="home__location" *ngFor="let ingredient of recipe.ingredients">
+        <i class="fas fa-chevron-right"></i>
+        <p>{{ ingredient.name }} - {{ ingredient.amount }}</p>
+    </div>
   </div>
   <button class="btn-list home__btn" [routerLink]="[index]">
     view

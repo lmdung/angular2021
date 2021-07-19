@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-12">
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="row">
@@ -42,4 +42,38 @@
       </div>
     </form>
   </div>
+</div> -->
+<div class="form-shopping">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <input 
+      type="text"
+      id="name"
+      name="name"
+      ngModel
+      required 
+      class="input-ingredient"
+      placeholder="Name ingredient">
+    <input 
+      type="number"
+      id="amount"
+      name="amount"
+      ngModel
+      required
+      pattern="^[1-9]+[0-9]*$" 
+      placeholder="Amount" 
+      class="input-amount">
+    <div class="form-shopping-g-btn">
+      <button
+        class="btn btn-success"
+        type="submit"
+        [disabled]="!f.valid">{{ editMode ? 'Update' : 'Add' }}</button>
+      <button
+        class="btn btn-danger"
+        type="button"
+        (click)="onDelete()"
+        *ngIf="editMode">Delete</button>
+      <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+    </div>
+
+  </form>
 </div>

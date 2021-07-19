@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
@@ -17,7 +17,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy{
   id: number;
   editMode = false;
   recipeForm: FormGroup;
-  subscription: Subscription
+  subscription: Subscription;
   constructor(
     private route: ActivatedRoute,
     // private recipeService: RecipeService,

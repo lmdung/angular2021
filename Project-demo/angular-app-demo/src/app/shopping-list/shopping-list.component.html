@@ -1,8 +1,7 @@
-<div class="row">
-  <div class="col-xs-10">
-    <app-shopping-edit></app-shopping-edit>
-    <hr>
-    <ul class="list-group">
+<div class="shopping-list">
+  <app-shopping-edit></app-shopping-edit>
+  <hr>
+    <!-- <ul class="list-group">
       <a
         class="list-group-item"
         style="cursor: pointer"
@@ -11,6 +10,16 @@
       >
         {{ ingredient.name }} ({{ ingredient.amount }})
       </a>
-    </ul>
+    </ul> -->
+  <div class="leaderboard__profiles">
+    <article 
+      class="leaderboard__profile"
+      *ngFor="let ingredient of (ingredients | async).ingredients; let i = index"
+      (click)="onEditItem(i)">
+      <span class="leaderboard__name">{{ ingredient.name }}</span>
+      <span class="leaderboard__value">{{ ingredient.amount }}</span>
+    </article>
   </div>
 </div>
+
+

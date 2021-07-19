@@ -1,17 +1,42 @@
 
 <div class="group-btn">
-  <button class="btnNew" (click)="fetchRecipes()">
+  <div action="#" class="search">
+    <input 
+      type="text" 
+      class="search__input" 
+      placeholder="Search recipe" 
+      [(ngModel)]="searchText"
+      (keyup)="searchKeyup($event)">
+  </div>
+  <button *ngIf="!recipes.length else yRecipes" class="btnNew" (click)="fetchRecipes()">
     <span>Fetch recipes</span>
   </button>
-  <button class="btnNew" (click)="storeRecipes()" style="margin-left: 1rem;">
-    <span>Store recipes</span>
-  </button>
+  <ng-template #yRecipes>
+    <button class="btnNew" (click)="storeRecipes()" style="margin-left: 1rem;">
+      <span>Store recipes</span>
+    </button>
+  </ng-template>
 </div>
 <div class="recipes">
   <app-recipe-item
-    *ngFor="let recipeEl of recipes; let i = index"
+    *ngFor="let recipeEl of viewRecipes  | paginate : {
+      itemsPerPage: 2,
+      currentPage: page,
+      totalItems: viewRecipes.length
+    } ; let i = index" 
     [recipe]="recipeEl"
-    [index]="i"></app-recipe-item>
+    [index]="(page - 1)*2 + i"
+    [searchText]="searchText"
+    ></app-recipe-item>
+</div>
+<div class="pagination">
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    responsive="true"
+    (pageChange)="handlePageChange($event)"
+    class="my-pagination"
+  ></pagination-controls>
 </div>
 <div class="cta">
   <h2 class="cta__book-now">

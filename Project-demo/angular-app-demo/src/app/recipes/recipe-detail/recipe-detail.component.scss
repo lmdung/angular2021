@@ -311,15 +311,19 @@ overflow: hidden;
 
 
 
-.btnNew {
+.btn-detail {
   font-weight: 300;
   text-transform: uppercase;
   border: none;
   border-radius: 5px;
-  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+  // background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+  background-color: var(--color-primary-dark);
   color: #fff;
   overflow: hidden;
   cursor: pointer;
+  &:last-child {
+    background-color:#ec595a;
+  }
   & > * {
     display: block;
     width: 100%;
@@ -329,10 +333,11 @@ overflow: hidden;
   
   span {
     padding: 1rem 3rem;
-    font-style: 1rem;
+    font-size: 1rem;
   }
   &:hover {
-    background-image: linear-gradient(to left bottom, var(--color-primary-light), var(--color-primary-dark));
+    // background-image: linear-gradient(to left bottom, var(--color-primary-light), var(--color-primary-dark));
+    background-color: var(--color-primary)
   }
 
   &:focus {
@@ -340,9 +345,9 @@ overflow: hidden;
     animation: pulsate 1s infinite;
   }
 }
-.group-btn {
+.group-btn-detail {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
