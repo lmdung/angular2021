@@ -50,9 +50,9 @@
   <div *ngIf="isLoading" style="text-align: center;">
     <app-loading-spinner></app-loading-spinner>
   </div>
-  <div
+  <div 
     *ngIf="!isLoading" 
-    class="container-auth" 
+    class="container-auth form-large" 
     id="container-auth" 
     [ngClass]="isLoginMode ? '' : 'right-panel-active'">
     <div class="form-container sign-up-container">
@@ -118,7 +118,7 @@
         <div class="overlay-panel overlay-left">
           <h1>Welcome Back!</h1>
           <!-- <p>To keep connected with us please login with your personal info</p> -->
-          <button class="ghost" id="signIn" (click)="onSwitchMode('login')">Login</button>
+          <button class="ghost login" id="signIn" (click)="onSwitchMode('login')">Login</button>
         </div>
         <div class="overlay-panel overlay-right">
           <h1>Hello, Friend!</h1>
@@ -126,6 +126,43 @@
           <button class="ghost" id="signUp" (click)="onSwitchMode('signUp')">Sign Up</button>
         </div>
       </div>
+    </div>
+  </div>
+
+
+  <div 
+    *ngIf="!isLoading" 
+    class="container-auth form-small" 
+    id="container-auth" >
+    <div class="form-container sign-in-container">
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <h1>Sign in</h1>
+        <div class="social-container">
+          <a style="cursor: not-allowed" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a style="cursor: not-allowed" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a style="cursor: not-allowed" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your account</span>
+        <input
+          type="email" 
+          placeholder="Email" 
+          id="email"
+          ngModel
+          name="email"
+          required
+          email/>
+        <input 
+          type="password" 
+          placeholder="Password" 
+          id="password"
+          ngModel
+          name="password"
+          required
+          minlength="6"/>
+        <a href="#" *ngIf="isLoginMode">Forgot your password?</a>
+        <button type="submit" [disabled]="!loginForm.valid">{{ isLoginMode ? 'Login':  'Sign Up'}}</button>
+        <a (click)="onSwitchMode()">Switch to {{ isLoginMode ?  'Sign Up' : 'Login'}}</a>
+      </form>
     </div>
   </div>
 </div>

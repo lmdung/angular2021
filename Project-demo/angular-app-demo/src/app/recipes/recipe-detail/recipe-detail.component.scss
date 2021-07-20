@@ -2,8 +2,12 @@ $bp-largest: 97.5em;
 $bp-large: 91em;
 $bp-medium: 70em;  
 $bp-small: 48em;  
+$bp-smallest: 31.25em; 
 .gallery {
   display: flex;
+  &__item {
+    margin: 0;
+  }
   &__photo {
     width: 100%;
     display: block;
@@ -325,6 +329,16 @@ overflow: hidden;
   color: #fff;
   overflow: hidden;
   cursor: pointer;
+  &:not(:first-child) {
+    margin-left: 1rem;
+    @media only screen and (max-width: $bp-smallest) {
+      margin-left: 0;
+    }
+  }
+  @media only screen and (max-width: $bp-smallest) {
+    margin-top: 1rem;
+  }
+  
   &:last-child {
     background-color:#ec595a;
   }
@@ -354,4 +368,8 @@ overflow: hidden;
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
+  @media only screen and (max-width: $bp-smallest) {
+    flex-direction: column;
+    align-items: start;
+  }
 }

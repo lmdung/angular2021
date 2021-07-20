@@ -16,7 +16,7 @@ export class RecipesEffects {
       switchMap(() => {
         return this.http
           .get<Recipe[]>(
-            "https://minrun-angular-demo-default-rtdb.firebaseio.com/recipes.json"
+            "https://lmdung-angular-demo-d9cd8-default-rtdb.firebaseio.com/recipes.json"
           )
           .pipe(
             map((recipes) => {
@@ -43,7 +43,7 @@ export class RecipesEffects {
         withLatestFrom(this.store.select("recipes")),
         switchMap(([actionData, recipesState]) => {
           return this.http.put(
-            "https://minrun-angular-demo-default-rtdb.firebaseio.com/recipes.json",
+            "https://lmdung-angular-demo-d9cd8-default-rtdb.firebaseio.com/recipes.json",
             recipesState.recipes
           );
         })

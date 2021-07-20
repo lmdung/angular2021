@@ -2,7 +2,7 @@ $bp-largest: 97.5em;
 $bp-large: 91em;
 $bp-medium: 70em;  
 $bp-small: 48em;  
-
+$bp-smallest: 31.25em; 
 .auth {
   width: 100%;
   height: 100%;
@@ -36,6 +36,9 @@ $bp-small: 48em;
     left: 0;
     width: 50%;
     z-index: 2;
+		@media only screen and (max-width: $bp-smallest ) {
+			width: 100%;
+		}
   }
   .sign-up-container {
     left: 0;
@@ -76,7 +79,9 @@ $bp-small: 48em;
     background-color: transparent;
     border-color: #FFFFFF;
   }
-  
+  button.login {
+		background-image: linear-gradient(to right bottom, var(--color-primary-dark), var(--color-primary-light));
+	}
   form {
     background-color: #FFFFFF;
     display: flex;
@@ -97,7 +102,17 @@ $bp-small: 48em;
   }
 }
 
-
+.form-small {
+	display: none;
+}
+@media only screen and (max-width: $bp-smallest) {
+	.form-large {
+		display: none;
+	}
+	.form-small {
+		display: block;
+	}
+}
 
 
 .container-auth.right-panel-active .sign-in-container {
