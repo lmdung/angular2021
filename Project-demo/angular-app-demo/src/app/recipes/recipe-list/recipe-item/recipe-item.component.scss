@@ -1,8 +1,12 @@
+$bp-medium: 70em; 
 
 .home {
   background-color: var(--color-grey-light-1);
   width: 30rem;
   position: relative;
+  @media only screen and (max-width: $bp-medium) {
+    margin-bottom: 4rem;
+  }
   &__img {
       width: 100%;
       grid-row: 1 / 2;

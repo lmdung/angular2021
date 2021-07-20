@@ -22,7 +22,7 @@ import * as AuthActions from './store/auth.actions';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit, OnDestroy {
-  isLoginMode = true;
+  isLoginMode = false;
   isLoading = false;
   error: string = null;
   @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
@@ -88,12 +88,10 @@ export class AuthComponent implements OnInit, OnDestroy {
 
     form.reset();
   }
-
   onHandleError() {
     // this.error = null;
     this.store.dispatch(new AuthActions.ClearError())
   }
-
   ngOnDestroy() {
     if (this.closeSub) {
       this.closeSub.unsubscribe();

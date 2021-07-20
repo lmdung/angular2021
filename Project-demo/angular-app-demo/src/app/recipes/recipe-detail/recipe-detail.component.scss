@@ -1,3 +1,7 @@
+$bp-largest: 97.5em;     
+$bp-large: 91em;
+$bp-medium: 70em;  
+$bp-small: 48em;  
 .gallery {
   display: flex;
   &__photo {
@@ -18,11 +22,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
-    // @media only screen and (max-width: $bp-small) {
-    //   font-size: 1.8rem;
-    //   letter-spacing: .5px;
-    //   padding: 1.25rem 2rem;
-    // }
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      letter-spacing: .5px;
+      padding: 1.25rem 2rem;
+    }
     // @media only screen and (max-width: $bp-smallest) {
     //   font-size: 1.5rem;
     //   padding: .5rem 1rem;
@@ -40,18 +44,18 @@
     width: 1.75rem;
     height: 1.75rem;
     color: var(--color-primary);
-    // @media only screen and (max-width: $bp-small) {
-    //   width: 1.5rem;
-    //   height: 1.5rem;
-    // }
+    @media only screen and (max-width: $bp-small) {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 
   &__location {
     font-size: 1.2rem;
     display: flex;
-    // @media only screen and (max-width: $bp-small) {
-    //   font-style: 1rem;
-    // }
+    @media only screen and (max-width: $bp-small) {
+      font-style: 1rem;
+    }
   }
   &__icon-location {
     margin-right: .5rem;
@@ -67,27 +71,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // @media only screen and (max-width: $bp-small) {
-    //   margin-left: 2rem;
-    //   padding: 0 1.5rem;
-    // }
+    @media only screen and (max-width: $bp-small) {
+      margin-left: 2rem;
+      padding: 0 1.5rem;
+    }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -3px;
-    // @media only screen and (max-width: $bp-small) {
-    //   font-size: 1.8rem;
-    // }
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
     font-size: .8rem;
     text-transform: uppercase;
-    // @media only screen and (max-width: $bp-small) {
-    //   font-size: .5rem;
-    // }
+    @media only screen and (max-width: $bp-small) {
+      font-size: .5rem;
+    }
   }
 }
 
@@ -138,13 +142,13 @@
   background-color: var(--color-grey-light-1);
   padding: 4.5rem;
   border-bottom: var(--line);
-  // @media only screen and (max-width: $bp-medium) {
-  //   padding: 3rem;
-  // }
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
 
-  // @media only screen and (max-width: $bp-small) {
-  //   flex-direction: column;
-  // }
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
 }
 
 .description {
@@ -153,15 +157,15 @@
   background-color: #fff;
   padding: 3rem;
   box-shadow: var(--box-shadow-light);
-  // @media only screen and (max-width: $bp-medium) {
-  //   padding: 2rem;
-  //   margin-right: 3rem;
-  // }
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-right: 3rem;
+  }
 
-  // @media only screen and (max-width: $bp-small) {
-  //   margin-right: 0;
-  //   margin-bottom: 3rem;
-  // }
+  @media only screen and (max-width: $bp-small) {
+    margin-right: 0;
+    margin-bottom: 3rem;
+  }
 }
 .users-review {
   flex: 1;
@@ -187,10 +191,10 @@
   padding: 3rem 0;
   border-top: var(--line);
   border-bottom: var(--line);
-  // @media only screen and (max-width: $bp-medium) {
-  //   margin: 2rem 0;
-  //   padding: 2rem 0;
-  // }
+  @media only screen and (max-width: $bp-medium) {
+    margin: 2rem 0;
+    padding: 2rem 0;
+  }
   &__item {
     flex: 0 0 50%;
     i {
@@ -252,10 +256,10 @@ padding: 3rem;
 margin-bottom: 3.5rem;
 position: relative;
 overflow: hidden;
-// @media only screen and (max-width: $bp-medium) {
-//   padding: 2rem;
-//   margin-bottom: 2.5rem;
-// }
+@media only screen and (max-width: $bp-medium) {
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+}
 &__text {
   margin-bottom: 2rem;
   z-index: 10;

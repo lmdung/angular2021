@@ -22,9 +22,9 @@
 }
 
 $bp-largest: 97.5em;     
-$bp-large: 68.75em;     // 1100px;
-$bp-medium: 56.25em;     // 900px;
-$bp-small: 37.5em;     // 600px
+$bp-large: 91em;
+$bp-medium: 70em;     // 1200px;
+$bp-small: 48em;     
 $bp-smallest: 31.25em; // 500px
 * {
   margin: 0;
@@ -41,7 +41,7 @@ html {
   font-size: 81.25%;
 
   @media only screen and (max-width: $bp-large) {
-    font-size: 50%;
+    font-size: 62.5%;
   }
 }
 body {
