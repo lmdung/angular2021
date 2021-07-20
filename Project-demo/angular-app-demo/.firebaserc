@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "minrun-angular-demo": {
+      "hosting": {
+        "minrun-angular-demo": [
+          "lmdung-angular-demo"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "minrun-angular-demo"
+  }
+}
