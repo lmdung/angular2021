@@ -1,3 +1,9 @@
+$bp-largest: 75em;     // 1200px;
+$bp-large: 68.75em;     // 1100px;
+$bp-medium: 56.25em;     // 900px;
+$bp-small: 37.5em;     // 600px
+$bp-smallest: 31.25em; // 500px
+
 input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
   border: 1px solid red;
@@ -21,37 +27,36 @@ $color-white: #fff;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
   margin: 0 10rem;
-  // @include respond(tab-land) {
-  //   background-image: linear-gradient(
-  //       105deg,
-  //       rgba($color-white, 0.9) 0%,
-  //       rgba($color-white, 0.9) 65%,
-  //       transparent 65%
-  //     ),
-  //     url(../img/nat-10.jpg);
-  //   background-size: cover;
-  // }
+  @media only screen and (max-width: $bp-largest) {
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 65%,
+        transparent 65%
+      ),
+      url(../../../assets/img/recipe-1.jpg);
+    background-size: cover;
+  }
 
-  // @include respond(tab-port) {
-  //   background-image: linear-gradient(
-  //       to right,
-  //       rgba($color-white, 0.9) 0%,
-  //       rgba($color-white, 0.9) 100%
-  //     ),
-  //     url(../img/nat-10.jpg);
-  // }
+  @media only screen and (max-width: $bp-medium) {
+    background-image: linear-gradient(
+        to right,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 100%
+      ),
+      url(../../../assets/img/recipe-1.jpg);
+  }
 
   &__form {
     width: 50%;
     padding: 3rem;
-
-    // @include respond(tab-land) {
-    //   width: 65%;
-    // }
-
-    // @include respond(tab-port) {
-    //   width: 100%;
-    // }
+    @media only screen and (max-width: $bp-largest) {
+      width: 65%;
+    }
+  
+    @media only screen and (max-width: $bp-medium) {
+      width: 100%;
+    }
   }
 }
 
@@ -73,9 +78,9 @@ $color-white: #fff;
       display: block;
       transition: all .3s;
 
-      // @include respond(tab-port) {
-      //     width: 100%;
-      // }
+      @media only screen and (max-width: $bp-medium) {
+        width: 100%;
+      }
 
       &:focus {
           outline: none;
@@ -112,11 +117,10 @@ $color-white: #fff;
   &__radio-group {
       width: 49%;
       display: inline-block;
-
-      // @include respond(tab-port) {
-      //     width: 100%;
-      //     margin-bottom: 2rem;
-      // }
+      @media only screen and (max-width: $bp-medium) {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
   }
 
   &__radio-input {

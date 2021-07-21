@@ -1,7 +1,7 @@
-$bp-largest: 97.5em;     
-$bp-large: 91em;
-$bp-medium: 70em;  
-$bp-small: 48em;  
+$bp-largest: 75em;     // 1200px;
+$bp-large: 68.75em;     // 1100px;
+$bp-medium: 56.25em;     // 900px;
+$bp-small: 37.5em;     // 600px
 $bp-smallest: 31.25em; // 500px
 
 // cta 
@@ -78,11 +78,11 @@ $bp-smallest: 31.25em; // 500px
 //   grid-gap: 7rem;
 // }
 .recipes {
-  margin: 10rem 15rem;
+  margin: 8rem auto;
   margin-bottom: 3rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   @media only screen and (max-width: $bp-medium) {
     flex-direction: column;
     align-items: center;

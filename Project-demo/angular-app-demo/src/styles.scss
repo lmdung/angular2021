@@ -2,9 +2,9 @@
 // @import '~bootstrap/dist/css/bootstrap.min.css';
 
 :root {
-  --color-primary: #e2a1a2;
-  --color-primary-light: #f1c7c7;
-  --color-primary-dark: #d67071;
+  --color-primary: #2196f3;
+  --color-primary-light: #74cbf3;
+  --color-primary-dark: #0238be;
 
   --color-grey-light-1: #faf9f9;
   --color-grey-light-2: #f4f2f2;
@@ -21,10 +21,10 @@
   --line: 1px solid var(--color-grey-light-2);
 }
 
-$bp-largest: 97.5em;     
-$bp-large: 91em;
-$bp-medium: 70em;     // 1200px;
-$bp-small: 48em;     
+$bp-largest: 75em;     // 1200px;
+$bp-large: 68.75em;     // 1100px;
+$bp-medium: 56.25em;     // 900px;
+$bp-small: 37.5em;     // 600px
 $bp-smallest: 31.25em; // 500px
 * {
   margin: 0;
@@ -38,10 +38,10 @@ $bp-smallest: 31.25em; // 500px
 
 html {
   box-sizing: border-box;
-  font-size: 81.25%;
+  font-size: 62.5%; //10px 10/16
 
   @media only screen and (max-width: $bp-large) {
-    font-size: 62.5%;
+    font-size: 50%;
   }
 }
 body {
@@ -50,7 +50,7 @@ body {
   line-height: 1.6;
   color: var(--color-grey-dark-2);
   // background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
-  background-image: url('./assets/img/background-2.jpg');
+  background-image: url('./assets/img/background-1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
