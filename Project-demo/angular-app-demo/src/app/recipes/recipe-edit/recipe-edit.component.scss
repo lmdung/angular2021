@@ -46,7 +46,9 @@ $color-white: #fff;
       ),
       url(../../../assets/img/recipe-1.jpg);
   }
-
+  @media only screen and (max-width: $bp-small) {
+    margin: 1rem;
+  }
   &__form {
     width: 50%;
     padding: 3rem;
@@ -66,7 +68,7 @@ $color-white: #fff;
   }
 
   &__input {
-      font-size: 1rem;
+      font-size: 1.5rem;
       font-family: inherit;
       color: inherit;
       padding: .5rem 1rem;
@@ -99,7 +101,7 @@ $color-white: #fff;
 
 
   &__label {
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: 700;
       margin-left: 1rem;
       margin-top: .4rem;
